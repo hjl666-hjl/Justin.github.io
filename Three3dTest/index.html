@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>手势交互 3D 粒子系统</title>
+  <style>
+    body { margin: 0; overflow: hidden; background: #000; font-family: 'Arial', sans-serif; }
+    #canvas-container { width: 100vw; height: 100vh; position: absolute; top: 0; left: 0; z-index: 1; }
+
+    /* 隐藏视频元素，但MediaPipe需要它 */
+    #video-input { position: absolute; top: 0; left: 0; opacity: 0; pointer-events: none; z-index: 0; }
+
+    /* UI 面板 */
+    #ui-panel {
+      position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
+      z-index: 10; display: flex; gap: 20px; padding: 15px;
+      background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px);
+      border-radius: 30px; border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .btn {
+      background: rgba(0,0,0,0.5); color: #fff; border: none; padding: 10px 20px;
+      border-radius: 20px; cursor: pointer; transition: 0.3s;
+    }
+    .btn:hover { background: #fff; color: #000; }
+
+    /* 颜色选择器 */
+    input[type="color"] { border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; background: none;}
+
+    /* 手势提示与全屏 */
+    #gesture-hint { position: absolute; top: 20px; left: 20px; color: rgba(255,255,255,0.7); z-index: 10; }
+    #fullscreen-btn { position: absolute; top: 20px; right: 20px; z-index: 10; background: none; border: 1px solid #fff; color: #fff; padding: 5px 10px; cursor: pointer; }
+  </style>
+</head>
+<body>
+
+<div id="canvas-container"></div>
+<video id="video-input" playsinline></video>
+
+<div id="gesture-hint">
+  状态: 宇宙粒子系统加载中... <br>
+  操作: 点击缩小查看整体 | 松开放大看细节 | 滚轮缩放 | 拖拽旋转 | 双击切换形状
+</div>
+<button id="fullscreen-btn">全屏模式</button>
+
+<div id="ui-panel">
+  <button class="btn" onclick="switchModel('prev')">← 上一个</button>
+  <input type="color" id="color-picker" value="#00ffff">
+  <button class="btn" onclick="switchModel('next')">下一个 →</button>
+</div>
+
+<!-- 引入库 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+
+<script src="main.js"></script>
+</body>
+</html>
