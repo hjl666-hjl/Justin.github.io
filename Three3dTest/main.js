@@ -296,7 +296,10 @@ function createParticleSystem() {
   const phases = new Float32Array(maxParticles);        // 动画相位偏移
 
   for(let i=0; i<maxParticles; i++) {
-    positions[i*3] = 0; positions[i*3+1] = 0; positions[i*3+2] = 0;
+    // 初始位置设置为随机分散，避免中间出现圆环
+    positions[i*3] = (Math.random() - 0.5) * 200;
+    positions[i*3+1] = (Math.random() - 0.5) * 200;
+    positions[i*3+2] = (Math.random() - 0.5) * 200;
 
     // 随机散开的目标点 (用于扩散效果)
     randoms[i*3] = (Math.random() - 0.5) * 300;
@@ -341,17 +344,17 @@ function createParticleSystem() {
             varying float vPhase;
 
             void main() {
-                // 核心逻辑：在凝聚点和目标形态之间插值
-                vec3 centerPoint = vec3(0.0, 0.0, 0.0);
-                vec3 pos = mix(centerPoint, target, uExpansion);
+                // 直接使用目标位置，不再凝聚到中心点
+                vec3 pos = target;
                 
-                // 增强的动态效果
+                // 增强的动态效果：波浪和脉动
                 float wave = sin(uTime * 1.5 + aPhase + pos.y * 0.05) * 0.8;
                 float pulse = sin(uTime * 3.0 + aPhase) * 0.3;
                 
-                pos.x += wave * uExpansion;
-                pos.y += cos(uTime * 1.2 + aPhase + pos.x * 0.05) * 0.6 * uExpansion;
-                pos.z += sin(uTime * 0.8 + aPhase) * 0.4 * uExpansion;
+                // 动态偏移（让粒子有生命力）
+                pos.x += wave * 0.5;
+                pos.y += cos(uTime * 1.2 + aPhase + pos.x * 0.05) * 0.6;
+                pos.z += sin(uTime * 0.8 + aPhase) * 0.4;
                 
                 vec4 mvPosition = modelViewMatrix * vec4(pos, 1.0);
                 gl_Position = projectionMatrix * mvPosition;
@@ -364,8 +367,8 @@ function createParticleSystem() {
                 float sizeFactor = aScale * (1.0 + pulse * 0.2);
                 gl_PointSize = uPointSize * sizeFactor * (400.0 / depth);
                 
-                // 透明度随深度和扩散状态变化
-                vAlpha = (uExpansion * 0.7 + 0.3) * (1.0 - depth * 0.001);
+                // 透明度随深度变化
+                vAlpha = 0.8 * (1.0 - depth * 0.001);
                 vPhase = aPhase;
             }
         `,
@@ -465,8 +468,10 @@ function updateParticleTargets(points) {
       targets[i*3+1] = points[i].y;
       targets[i*3+2] = points[i].z;
     } else {
-      // 多余的粒子隐藏到中心
-      targets[i*3] = 0; targets[i*3+1] = 0; targets[i*3+2] = 0;
+      // 多余的粒子移到远离视野的随机位置（避免中心圆环）
+      targets[i*3] = (Math.random() - 0.5) * 10000;
+      targets[i*3+1] = (Math.random() - 0.5) * 10000;
+      targets[i*3+2] = (Math.random() - 0.5) * 10000;
     }
   }
   geometry.attributes.target.needsUpdate = true;
