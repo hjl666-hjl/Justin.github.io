@@ -1,0 +1,290 @@
+/* 文章详情页样式 */
+
+.post-container {
+  max-width: 900px;
+  margin: 100px auto 50px;
+  padding: 0 20px;
+}
+
+/* 文章头部 */
+.post-header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 30px;
+  background: var(--headerCOlor);
+  border-radius: 15px;
+}
+
+.post-header .post-title {
+  font-size: 2rem;
+  color: var(--headerFont);
+  margin-bottom: 15px;
+  line-height: 1.4;
+}
+
+.post-meta {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  color: #7B7B7D;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.post-tags {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.post-tags .tag {
+  background: var(--mainColor);
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 15px;
+  font-size: 12px;
+}
+
+/* 文章内容 */
+.post-content {
+  padding: 40px;
+  background: var(--headerCOlor);
+  border-radius: 15px;
+  line-height: 1.8;
+  color: var(--headerFont);
+}
+
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h4,
+.post-content h5,
+.post-content h6 {
+  color: var(--headerFont);
+  margin: 1.5em 0 0.8em;
+  font-weight: 600;
+}
+
+.post-content h1 { font-size: 1.8rem; }
+.post-content h2 { font-size: 1.5rem; border-bottom: 1px solid var(--borderColor); padding-bottom: 10px; }
+.post-content h3 { font-size: 1.3rem; }
+.post-content h4 { font-size: 1.1rem; }
+
+.post-content p {
+  margin: 1em 0;
+  text-indent: 0;
+}
+
+.post-content a {
+  color: var(--mainColor);
+  text-decoration: none;
+}
+
+.post-content a:hover {
+  text-decoration: underline;
+}
+
+.post-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin: 15px 0;
+  display: block;
+}
+
+.post-content blockquote {
+  border-left: 4px solid var(--mainColor);
+  padding: 15px 20px;
+  margin: 20px 0;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 0 10px 10px 0;
+  font-style: italic;
+}
+
+.post-content ul,
+.post-content ol {
+  padding-left: 2em;
+  margin: 1em 0;
+}
+
+.post-content li {
+  margin: 0.5em 0;
+  text-indent: 0;
+  padding-left: 0;
+}
+
+.post-content li::before {
+  content: none;
+}
+
+.post-content ul li {
+  list-style: disc;
+}
+
+.post-content ol li {
+  list-style: decimal;
+}
+
+.post-content code {
+  background: rgba(0, 0, 0, 0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'Consolas', 'Monaco', monospace;
+  font-size: 0.9em;
+}
+
+.post-content pre {
+  margin: 20px 0;
+  border-radius: 10px;
+  overflow: auto;
+}
+
+.post-content pre code {
+  background: none;
+  padding: 0;
+}
+
+.post-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+.post-content table th,
+.post-content table td {
+  border: 1px solid var(--borderColor);
+  padding: 10px 15px;
+  text-align: left;
+}
+
+.post-content table th {
+  background: var(--mainColor);
+  color: #fff;
+}
+
+.post-content table tr:nth-child(even) {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.post-content hr {
+  border: none;
+  border-top: 1px dashed var(--borderColor);
+  margin: 30px 0;
+}
+
+/* 文章底部 */
+.post-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+  padding: 20px;
+  background: var(--headerCOlor);
+  border-radius: 15px;
+}
+
+.back-btn {
+  color: var(--mainColor);
+  text-decoration: none;
+  font-weight: 500;
+  transition: transform 0.3s;
+}
+
+.back-btn:hover {
+  transform: translateX(-5px);
+}
+
+.post-share {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.share-btn {
+  background: var(--mainColor);
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.share-btn:hover {
+  opacity: 0.8;
+}
+
+/* 加载动画 */
+.loading-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--borderColor);
+  border-top-color: var(--mainColor);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loading-spinner p {
+  margin-top: 15px;
+  color: #7B7B7D;
+}
+
+/* 错误信息 */
+.error-message {
+  text-align: center;
+  padding: 60px;
+}
+
+.error-message h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.error-message a {
+  display: inline-block;
+  margin-top: 20px;
+  color: var(--mainColor);
+}
+
+/* 响应式 */
+@media screen and (max-width: 768px) {
+  .post-container {
+    margin-top: 80px;
+    padding: 0 15px;
+  }
+
+  .post-header {
+    padding: 20px;
+  }
+
+  .post-header .post-title {
+    font-size: 1.5rem;
+  }
+
+  .post-meta {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .post-content {
+    padding: 20px;
+  }
+
+  .post-footer {
+    flex-direction: column;
+    gap: 15px;
+  }
+}

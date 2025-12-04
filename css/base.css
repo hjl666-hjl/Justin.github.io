@@ -341,10 +341,6 @@ img {
   /* top: 390px; */
 }
 
-.scroll{
-  position: fixed !important;
-  top: 49%;
-}
 .content .me-card {
   width: fit-content;
   min-width: 285px;
@@ -355,6 +351,13 @@ img {
   text-align: center;
   border: 1px solid var(--headerCOlor);
   padding: 0px 30px;
+}
+
+/* 左边吸盘 - 滚动时固定居中 */
+.content .me-card.scroll {
+  position: fixed !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
 }
 
 
@@ -750,8 +753,10 @@ img {
       width:auto;
       transform: translateY(-20px);
     }
-    .scroll{
-      position:relative !important;
+    .content .me-card.scroll{
+      position: relative !important;
+      top: auto !important;
+      transform: translateY(-20px) !important;
     }
 
     
@@ -825,8 +830,10 @@ img {
     width:auto;
     transform: translateY(-20px);
   }
-  .scroll{
-    position:relative !important;
+  .content .me-card.scroll{
+    position: relative !important;
+    top: auto !important;
+    transform: translateY(-20px) !important;
   }
 }
 

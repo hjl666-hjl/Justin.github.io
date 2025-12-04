@@ -1,0 +1,57 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "Vue CLI打包优化指南",
+      "summary": "详细介绍Vue CLI npm run build打包时的各种优化技巧，包括CDN引入、关闭sourcemap、Gzip压缩等方法。",
+      "file": "vue-cli-build-optimize.md",
+      "cover": "",
+      "tags": ["Vue", "前端优化", "Webpack"],
+      "category": "前端开发",
+      "date": "2024-12-01",
+      "pinned": true,
+      "likes": 15
+    },
+    {
+      "id": 2,
+      "title": "JavaScript异步编程详解",
+      "summary": "从回调函数到Promise，再到async/await，全面讲解JavaScript异步编程的演进历程和最佳实践。",
+      "file": "javascript-async.md",
+      "cover": "",
+      "tags": ["JavaScript", "异步编程", "Promise"],
+      "category": "前端开发",
+      "date": "2024-11-28",
+      "pinned": false,
+      "likes": 8
+    },
+    {
+      "id": 3,
+      "title": "Spring Boot快速入门",
+      "summary": "Spring Boot框架入门教程，从零开始搭建一个完整的Web应用，包含数据库操作、RESTful API设计等内容。",
+      "file": "springboot-quickstart.md",
+      "cover": "",
+      "tags": ["Java", "Spring Boot", "后端开发"],
+      "category": "后端开发",
+      "date": "2024-11-20",
+      "pinned": false,
+      "likes": 12
+    },
+    {
+      "id": 4,
+      "title": "多媒体测试文章",
+      "summary": "测试博客系统对图片、代码高亮、表格等多媒体内容的支持，包含多种Markdown语法演示。",
+      "file": "test-with-media.md",
+      "cover": "./posts/assets/demo-image.svg",
+      "tags": ["测试", "Markdown", "多媒体"],
+      "category": "其他",
+      "date": "2024-12-04",
+      "pinned": false,
+      "likes": 3
+    }
+  ],
+  "categories": ["前端开发", "后端开发", "数据库", "工具使用", "其他"],
+  "about": {
+    "totalPosts": 4,
+    "lastUpdate": "2024-12-04"
+  }
+}

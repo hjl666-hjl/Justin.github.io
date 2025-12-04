@@ -171,6 +171,110 @@
 
 
 
+/* 分类标签样式 */
+.category-tags-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.category-tags-wrap .category-tag {
+  position: relative;
+  padding: 8px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  background: var(--headerCOlor);
+  color: var(--headerFont);
+  transition: all 0.3s ease;
+  font-size: 13px;
+}
+
+.category-tags-wrap .category-tag:hover,
+.category-tags-wrap .category-tag.active {
+  background: var(--mainColor);
+  color: #fff;
+}
+
+.category-tags-wrap .category-tag i {
+  position: absolute;
+  right: -5px;
+  top: -5px;
+  background: var(--mainColor);
+  color: #fff;
+  width: 18px;
+  height: 18px;
+  line-height: 18px;
+  text-align: center;
+  border-radius: 50%;
+  font-size: 11px;
+  font-style: normal;
+}
+
+.category-tags-wrap .category-tag.active i {
+  background: #fff;
+  color: var(--mainColor);
+}
+
+/* 文章卡片样式 */
+.post-card {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.post-card .post-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--headerFont);
+  margin: 10px 0;
+}
+
+.post-card .post-summary {
+  color: #7B7B7D;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.post-card .post-footer {
+  margin-top: 15px;
+  text-align: right;
+}
+
+.post-card .read-more {
+  color: var(--mainColor);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* 加载状态 */
+.loading-posts {
+  text-align: center;
+  padding: 40px;
+  color: #7B7B7D;
+}
+
+.no-posts {
+  text-align: center;
+  padding: 40px;
+  color: #7B7B7D;
+}
+
+/* 时间标签点击效果 */
+.time-tags-wrap .time-tag {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.time-tags-wrap .time-tag:hover {
+  background: var(--mainColor);
+  color: #fff;
+}
+
 /* 手机*/
 @media screen and (max-width: 550px) {
   .content-li{
@@ -180,6 +284,13 @@
     display: block;
   }
   .time-tags-wrap span{
+    display: block;
+    margin-bottom: 8px;
+  }
+  .category-tags-wrap {
+    flex-direction: column;
+  }
+  .category-tags-wrap .category-tag {
     display: block;
     margin-bottom: 8px;
   }

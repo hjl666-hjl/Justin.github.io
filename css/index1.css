@@ -241,46 +241,43 @@ svg {
   font-size: 20px;
   z-index: 1;
   color: white;
-  top: 10%;
+  top: 50%;
+  transform: translateY(-50%);
   opacity: 0;
+  cursor: pointer;
 }
 
 .li5-box:hover .left{
-  transform: translateX(100%);
   opacity: 1;
   background-color: var(--mainColor);
 }
 .li5-box:hover .right {
-  transform: translateX(-100%);
   opacity: 1;
   background-color: var(--bagColor);
 }
 
 .li5-box .left {
-  right: 15%;
+  right: 10px;
 }
 .li5-box .right {
-  left: 15%;
+  left: 10px;
 }
 
 .li5box-ul {
-  min-width: 100%;
   transition: transform 1s ease;
   transform: translate3d(0px, 0px, 0px);
-  transition-duration: 1s;
-  /* min-height: 250px; */
-  /* background-color: aqua;
-    transition-duration: 0ms;
-    transform: translate3d(-0%, 10px, 10px); */
+  display: flex;
+  white-space: nowrap;
 }
 
 .li5box-car {
+  flex-shrink: 0;
   display: inline-block;
   height: 300px;
   box-sizing: border-box;
-  width: 680px;
   text-align: center;
   padding: 50px 20px;
+  white-space: normal;
 }
 
 .li5box-car>img {
@@ -325,10 +322,13 @@ svg {
   display: block;
   overflow: hidden;
   margin-top: 0px;
+  height: 200px;
 }
 .li6-box img{
   transform: scale(1.1);
+  width: 100%;
   height: 100%;
+  object-fit: cover;
   transition: all .3s ease-in-out;
 }
 .li6-box img:hover{
@@ -352,22 +352,7 @@ svg {
   overflow: hidden;
 }
 
-.li7boxitem.active::after{
-  content: '欢迎聘用';
-  text-align: center;
-  color: #fcfcfe;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  line-height: 20px;
-  height: 20px;
-  padding: 0 40px;
-  background-color: var(--mainColor);
-  transform: rotate(45deg);
-  position: absolute;
-  top: 23px;
-  right: -40px;
-}
+/* 欢迎聘用角标已移除 */
 
 .li7boxitem h3{
   margin-bottom: 30px;

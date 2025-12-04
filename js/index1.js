@@ -1,38 +1,48 @@
 (function () {
-  //获取宽度
-  var witdhDefual = parseFloat($('.li5box-car').css('width').replace(/[^0-9\-,]/g, '')) + 7
+  // 获奖轮播
+  let currentIndex = 0;
   let num = $('.li5box-ul .li5box-car').length;
-  $('.li5box-ul').css('width', (num) * witdhDefual + 'px');
-  var MAX=(num-1)*witdhDefual
-
+  
+  // 获取容器宽度作为每个卡片的宽度
+  function getSlideWidth() {
+    return $('.li5-box').width();
+  }
+  
+  // 设置每个卡片的宽度
+  function updateCardsWidth() {
+    let width = getSlideWidth();
+    $('.li5box-car').css('width', width + 'px');
+  }
+  
+  // 初始化
+  updateCardsWidth();
+  
+  // 窗口大小变化时重新计算
+  $(window).resize(function() {
+    updateCardsWidth();
+    // 重新定位到当前卡片
+    let offset = currentIndex * -getSlideWidth();
+    $('#li5boxul').css('transform', 'translate3d(' + offset + 'px, 0px, 0px)');
+  });
 
   $('#leftimg').click(function () {
-    //获取当前的偏移量
-    let value = parseFloat($('#li5boxul').css("transform").replace(/[^0-9\-,]/g, '').split(',')[4])
-    
-    if (value <= 0) {
-      value = value * -1
+    // 下一个
+    if (currentIndex >= num - 1) {
+      return false;
     }
- 
-    if (value >=MAX) {
-      return false
-    }
-
-    //转移下一个偏移量
-    let result = parseFloat(value + witdhDefual) * -1
-    $('#li5boxul').css('transform', 'translate3d(' + result + 'px,0px,0px)');
-
+    currentIndex++;
+    let offset = currentIndex * -getSlideWidth();
+    $('#li5boxul').css('transform', 'translate3d(' + offset + 'px, 0px, 0px)');
   })
+
   $('#rightimg').click(function () {
-    //获取当前的偏移量
-    let value = parseFloat($('#li5boxul').css("transform").replace(/[^0-9\-,]/g, '').split(',')[4])
-    if (value >= 0||value<MAX*-1) {
-      return false
+    // 上一个
+    if (currentIndex <= 0) {
+      return false;
     }
-   
-    //转移下一个偏移量
-    let result=parseFloat(value+witdhDefual)
-    $('#li5boxul').css('transform','translate3d('+result+'px,0px,0px)')
+    currentIndex--;
+    let offset = currentIndex * -getSlideWidth();
+    $('#li5boxul').css('transform', 'translate3d(' + offset + 'px, 0px, 0px)');
   })
 
 

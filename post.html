@@ -1,15 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>求职简历</title>
+  <title>文章详情 - Justin的博客</title>
   <link rel="stylesheet" href="./css/base.css">
-  <script src="./js/jq.js"></script>
-  <link rel="stylesheet" href="./css/live.css">
+  <link rel="stylesheet" href="./css/blog.css">
+  <link rel="stylesheet" href="./css/post.css">
+  <link rel="stylesheet" href="./css/prism.css">
+  <link rel="stylesheet" href="./css/prism-line-numbers.css">
   <link rel="stylesheet" href="./css/effects.css">
+  <script src="./js/jq.js"></script>
 </head>
 
 <body>
@@ -20,11 +23,13 @@
     <div class="loadding-div"></div>
   </div>
 
+  <!-- 主要页面 -->
   <div class="box">
+
     <!-- 顶部栏 -->
     <div class="header borderafter">
       <!-- 返回按钮 -->
-      <a style="position: absolute;left:50px;" href="javascript:history.back()">
+      <a style="position:absolute;left:50px;" href="./blog.html">
         <svg t="1649246285004" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
           p-id="3737" width="20" height="20">
           <path
@@ -34,7 +39,7 @@
       </a>
 
       <div class="col">
-        <span>个人简历</span>
+        <span>博客文章</span>
         <!-- 右边操作栏 -->
         <div class="header-right">
           <!-- 按钮 -->
@@ -49,8 +54,8 @@
               <li><a href="./home.html">项目</a></li>
               <li><a href="./resume.html">经验</a></li>
               <li><a href="./contact.html">联系</a></li>
-              <li><a href="./blog.html">博客</a></li>
-              <li class="active"><a href="./live.html">其他</a></li>
+              <li class="active"><a href="./blog.html">博客</a></li>
+              <li><a href="./live.html">其他</a></li>
             </ul>
             <!-- 开关灯 -->
             <span class="kaig-bottm">
@@ -76,103 +81,156 @@
       </div>
     </div>
 
-    <!-- 顶部导航 -->
-    <div class="navigation">
-      <div class="nav-titleBox co zz">
-        <!-- 标题 -->
-        <div class="co-right">
-          <span class="titleBox-tag">Photo!</span>
-          <h1>
-            life is like a box of chocolates .
-          </h1>
-          <a class="buttom navbtn" href="#next-one">生活就像巧克力
-          </a>
+    <!-- 文章内容区域 -->
+    <div class="post-container">
+      <!-- 文章头部信息 -->
+      <div class="post-header" id="post-header">
+        <h1 class="post-title" id="post-title">加载中...</h1>
+        <div class="post-meta" id="post-meta">
+          <span class="post-date"></span>
+          <span class="post-category"></span>
         </div>
+        <div class="post-tags" id="post-tags"></div>
       </div>
-    </div>
 
-    <!-- 主要修改部分 -->
-    <div class="content zz">
-      <!-- 主要内容部分 -->
-      <div id="next-one">
-        <div class="content-li li1">
-          <div class="li1-box borderbefore">
-            <span>Sports</span><span class="tag">25</span>
-            <div class="borderbotm"></div>
-            <p>运动</p>
-          </div>
-          <div class="li1-box borderbefore">
-            <span>Foot</span><span class="tag">5</span>
-            <div class="borderbotm"></div>
-            <p>美食</p>
-          </div>
-          <div class="li1-box borderbefore">
-            <span>Travel</span><span class="tag">18</span>
-            <div class="borderbotm"></div>
-            <p>旅行</p>
-          </div>
-        </div>
-        <div class="content-li li2">
-          <h3>
-            <span>生活精彩瞬间</span>
-            <div class="borderbotm"></div>
-            <span>02</span>
-          </h3>
-          <div class="li2-box">
-            <a class="li2-box-item carbox">
-              <img src="./img/pic1.jpg" alt="">
-              <div class="boxitem-title">
-                <h6>精彩瞬间</h6>
-                <span>地点：山西 晋城</span>
-              </div>
-            </a>
-            <a class="li2-box-item carbox" href="https://gitee.com/wttAndroid/book_admin">
-              <img src="./img/pic3.jpg" alt="">
-              <div class="boxitem-title">
-                <h6>精彩瞬间</h6>
-                <span>地点：山西 晋城</span>
-              </div>
-            </a>
-            <a class="li2-box-item carbox" href="https://wttandroid.gitee.io/wttandroid.github.io/">
-              <img src="./img/timg2.gif" alt="">
-              <div class="boxitem-title">
-                <h6>河南 影视城</h6>
-                <span>地点：河南 影视城</span>
-              </div>
-            </a>
-            <a class="li2-box-item carbox" href="https://gitee.com/wttAndroid/xyy_server">
-              <img src="./img/box4.gif" alt="">
-              <div class="boxitem-title">
-                <h6>洛阳牡丹</h6>
-                <span>地点：洛阳 牡丹园</span>
-              </div>
-            </a>
-            <a class="li2-box-item carbox" href="https://gitee.com/wttAndroid/xyy_server">
-              <img src="./img/box3.gif" alt="">
-              <div class="boxitem-title">
-                <h6>北京动物园</h6>
-                <span>地点：北京 动物园</span>
-              </div>
-            </a>
-            <a class="li2-box-item carbox" href="https://gitee.com/wttAndroid/xyy_server">
-              <img src="./img/box1.gif" alt="">
-              <div class="boxitem-title">
-                <h6>太原柳巷</h6>
-                <span>地点：太原 柳巷</span>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="borderbotm"></div>
-        <div class="carbox copybottm">
-          ©2022 wttandroid
+      <!-- 文章正文 -->
+      <div class="post-content carbox" id="post-content">
+        <div class="loading-spinner">
+          <div class="spinner"></div>
+          <p>正在加载文章...</p>
         </div>
       </div>
+
+      <!-- 文章底部 -->
+      <div class="post-footer">
+        <div class="post-nav">
+          <a href="./blog.html" class="back-btn">← 返回文章列表</a>
+        </div>
+        <div class="post-share">
+          <span>分享文章：</span>
+          <button onclick="copyLink()" class="share-btn">复制链接</button>
+        </div>
+      </div>
+
+      <!-- 版权信息 -->
+      <div class="carbox copybottm">
+        © 2024 Justin's Blog
+      </div>
     </div>
+  </div>
+
+  <script src="./js/base.js"></script>
+  <script src="./js/marked.js"></script>
+  <script src="./js/prism.js"></script>
+  <script type="text/javascript" src="./js/paper-full.min.js"></script>
+  <script type="text/javascript" src="./js/canvas.js"></script>
+  <script src="./js/effects.js"></script>
+
+  <script>
+    // 获取URL参数
+    function getQueryParam(name) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(name);
+    }
+
+    // 加载文章
+    async function loadPost() {
+      const file = getQueryParam('file');
+      if (!file) {
+        document.getElementById('post-content').innerHTML = '<p class="error">未指定文章</p>';
+        return;
+      }
+
+      try {
+        // 加载文章配置获取元信息
+        const configResponse = await fetch('./posts/posts.json');
+        const config = await configResponse.json();
+        const postInfo = config.posts.find(p => p.file === file);
+
+        // 加载Markdown文件
+        const mdResponse = await fetch(`./posts/${file}`);
+        if (!mdResponse.ok) {
+          throw new Error('文章不存在');
+        }
+        const mdContent = await mdResponse.text();
+
+        // 更新页面标题
+        if (postInfo) {
+          document.title = `${postInfo.title} - Justin的博客`;
+          document.getElementById('post-title').textContent = postInfo.title;
+          
+          // 更新元信息
+          const metaHtml = `
+            <span class="post-date">📅 ${postInfo.date}</span>
+            <span class="post-category">📁 ${postInfo.category}</span>
+          `;
+          document.getElementById('post-meta').innerHTML = metaHtml;
+
+          // 更新标签
+          const tagsHtml = postInfo.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
+          document.getElementById('post-tags').innerHTML = tagsHtml;
+        } else {
+          // 从Markdown中提取标题
+          const titleMatch = mdContent.match(/^#\s+(.+)$/m);
+          if (titleMatch) {
+            document.getElementById('post-title').textContent = titleMatch[1];
+            document.title = `${titleMatch[1]} - Justin的博客`;
+          }
+        }
+
+        // 渲染Markdown
+        let html = marked.parse(mdContent);
+        
+        // 添加代码行号支持
+        html = html.replace(/<pre>/g, "<pre class='line-numbers'>");
+        html = html.replace(/<table/g, "<table class='tableStyle'");
+
+        document.getElementById('post-content').innerHTML = html;
+
+        // 代码高亮
+        document.querySelectorAll('#post-content code').forEach(block => {
+          Prism.highlightElement(block);
+        });
+
+        // 图片点击放大
+        document.querySelectorAll('#post-content img').forEach(img => {
+          img.style.cursor = 'pointer';
+          img.addEventListener('click', () => {
+            window.open(img.src, '_blank');
+          });
+        });
+
+      } catch (error) {
+        console.error('加载文章失败:', error);
+        document.getElementById('post-content').innerHTML = `
+          <div class="error-message">
+            <h3>😢 文章加载失败</h3>
+            <p>${error.message}</p>
+            <a href="./blog.html">返回文章列表</a>
+          </div>
+        `;
+      }
+    }
+
+    // 复制链接
+    function copyLink() {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        alert('链接已复制到剪贴板');
+      }).catch(() => {
+        // 降级方案
+        const input = document.createElement('input');
+        input.value = window.location.href;
+        document.body.appendChild(input);
+        input.select();
+        document.execCommand('copy');
+        document.body.removeChild(input);
+        alert('链接已复制到剪贴板');
+      });
+    }
+
+    // 页面加载完成后执行
+    document.addEventListener('DOMContentLoaded', loadPost);
+  </script>
 </body>
-<script src="./js/base.js"></script>
-<script type="text/javascript" src="./js/paper-full.min.js"></script>
-<script type="text/javascript" src="./js/canvas.js"></script>
-<script src="./js/effects.js"></script>
 
 </html>
