@@ -26,7 +26,20 @@
   border-radius: 10px;
   padding: 30px 20px;
   box-sizing: border-box;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  border: 1px solid transparent;
+}
 
+.content-li.li1>.li1-box:hover {
+  background-color: rgba(0, 40, 58, 0.85);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* 悬停时数字高亮效果 */
+.content-li.li1>.li1-box:hover > span:first-child {
+  color: var(--mainColor);
 }
 
 .li1-box>span {
@@ -36,6 +49,11 @@
   color: var(--headerFont);
   line-height: 20px;
   display: inline-block;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.li1-box:hover>span {
+  transform: translateY(-3px);
 }
 
 .li1-box>span.tag{
@@ -49,8 +67,12 @@
   font-weight: 700;
   letter-spacing: 2px;
   color: var(--headerFont);
-  transition: .4s ease-in-out;
+  transition: all 0.4s ease-in-out;
   margin: 0px;
+}
+
+.li1-box:hover>p {
+  color: rgba(255, 255, 255, 0.9);
 }
 
 /* 公共 */
@@ -273,6 +295,8 @@ svg {
 .li5box-car {
   flex-shrink: 0;
   display: inline-block;
+  width: 33.33%;
+  min-width: 280px;
   height: 300px;
   box-sizing: border-box;
   text-align: center;
@@ -350,6 +374,20 @@ svg {
   padding: 50px 0;
   position: relative;
   overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  border: 1px solid transparent;
+}
+
+/* 期望薪资卡片悬停效果 */
+.li7boxitem:hover {
+  background-color: rgba(0, 40, 58, 0.85);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* 悬停时价格高亮 */
+.li7boxitem:hover .item-price {
+  color: var(--mainColor);
 }
 
 /* 欢迎聘用角标已移除 */
@@ -383,6 +421,7 @@ svg {
   font-size: 28px;
   font-family: fantasy;
   text-align: center;
+  transition: color 0.4s ease;
 }
 .item-price sub{
     font-size: 14px;
@@ -400,6 +439,9 @@ svg {
        .li1{
         display: block !important;
       }
+      .li1-box {
+        margin-bottom: 15px;
+      }
       .li4-box{
         display: block;
       }
@@ -409,7 +451,21 @@ svg {
       .li7-box{
         display: block;
       }
+      .li7boxitem {
+        margin-bottom: 15px;
+      }
+      /* 获奖轮播适配 */
+      .li5box-ul {
+        flex-wrap: wrap;
+        transform: none !important;
+      }
       .li5box-car{
-        width:auto;
+        width: 100%;
+        min-width: auto;
+        flex-shrink: 1;
+      }
+      .li5-box .left,
+      .li5-box .right {
+        display: none;
       }
     }

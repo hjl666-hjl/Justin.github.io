@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Justin Huang</title>
+    <link rel="stylesheet" href="./css/apple-common.css">
+    <link rel="stylesheet" href="./css/design.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        /* Specific overrides for this page */
+        html, body { scroll-snap-type: none; height: auto; overflow-y: auto; }
+        .page-section { height: auto; min-height: auto; padding-top: 100px; padding-bottom: 100px; display: block; }
+        .hero-headline { color: #1d1d1f; -webkit-text-fill-color: initial; background: none; animation: none; opacity: 1; margin-top: 60px;}
+        .section-content-wrapper { max-width: 1200px; }
+        
+        /* Fade in effect for cards */
+        .project-card {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUpCard 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+        }
+        
+        @keyframes fadeUpCard {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Stagger animations */
+        .project-card:nth-child(1) { animation-delay: 0.1s; }
+        .project-card:nth-child(2) { animation-delay: 0.2s; }
+        .project-card:nth-child(3) { animation-delay: 0.3s; }
+        .project-card:nth-child(4) { animation-delay: 0.4s; }
+        .project-card:nth-child(5) { animation-delay: 0.5s; }
+        .project-card:nth-child(6) { animation-delay: 0.6s; }
+        .project-card:nth-child(7) { animation-delay: 0.7s; }
+        .project-card:nth-child(8) { animation-delay: 0.8s; }
+        .project-card:nth-child(9) { animation-delay: 0.9s; }
+        .project-card:nth-child(10) { animation-delay: 1.0s; }
+    </style>
+</head>
+<body>
+    <div class="bg-decoration">
+        <div class="blur-shape shape-1"></div>
+        <div class="blur-shape shape-2"></div>
+        <div class="grid-pattern"></div>
+    </div>
+
+    <nav class="globalnav">
+        <div class="globalnav-content">
+            <a href="./design.html" class="globalnav-link globalnav-logo">Justin</a>
+            <ul class="globalnav-list">
+                <li><a href="./projects.html" class="globalnav-link" style="color:#0066cc; opacity:1;">Projects</a></li>
+                <li><a href="./about.html" class="globalnav-link">Skills</a></li>
+                <li><a href="./about.html#story" class="globalnav-link">Story</a></li>
+                <li><a href="./contact.html" class="globalnav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="section-content-wrapper">
+        <h1 class="hero-headline" style="font-size: 56px; text-align: center; margin-bottom: 20px;">Selected Work.</h1>
+        <p class="section-subtitle" style="text-align: center; margin-bottom: 60px;">A collection of projects, experiments, and ideas.</p>
+        
+        <div class="projects-gallery">
+            <!-- Project 1 -->
+            <a href="https://github.com/hjl666-hjl" class="project-card" target="_blank">
+                <div class="project-image-container">
+                    <img src="./img/p1.png" alt="Douyin Project">
+                </div>
+                <div class="project-info">
+                    <div>
+                        <span class="project-category">Automation</span>
+                        <h3 class="project-title">抖音一键取关项目</h3>
+                        <p class="project-desc">Automated script for batch unfollowing on Douyin platform.</p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Project 2 -->
+            <a href="https://github.com/hjl666-hjl" class="project-card" target="_blank">
+                <div class="project-image-container">
+                    <img src="./img/project/wangyiyun.png" alt="Taobao Project">
+                </div>
+                <div class="project-info">
+                    <div>
+                        <span class="project-category">E-Commerce Script</span>
+                        <h3 class="project-title">淘宝抢单项目</h3>
+                        <p class="project-desc">High-speed automated order sniping system for Taobao.</p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Project 3 -->
+            <a href="https://github.com/hjl666-hjl" class="project-card" target="_blank">
+                <div class="project-image-container">
+                    <img src="./img/project/wangzhan.png" alt="Campus Network">
+                </div>
+                <div class="project-info">
+                    <div>
+                        <span class="project-category">Network Utility</span>
+                        <h3 class="project-title">自动登录校园网项目</h3>
+                        <p class="project-desc">Auto-login script for university campus network authentication.</p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Project 4: Dr Strange (From Homepage) -->
+            <a href="./Three3dTest/index.html" class="project-card">
+                <div class="project-image-container">
+                    <img src="./img/videoback2.jpg" alt="Magic Particles">
+                </div>
+                <div class="project-info">
+                    <div>
+                        <span class="project-category">Interactive 3D</span>
+                        <h3 class="project-title">Dr. Strange Magic Particles</h3>
+                        <p class="project-desc">Web-based particle system simulating movie effects using Three.js.</p>
+                    </div>
+                </div>
+            </a>
+
+             <!-- Project 5: OpenGL (From Homepage) -->
+             <a href="./project3.html" class="project-card">
+                <div class="project-image-container">
+                    <img src="./img/project3.png" alt="OpenGL Monument Valley">
+                </div>
+                <div class="project-info">
+                    <div>
+                        <span class="project-category">Computer Graphics</span>
+                        <h3 class="project-title">OpenGL Monument Valley</h3>
+                        <p class="project-desc">Recreating the Monument Valley scene using C++ and OpenGL.</p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Project 6: IPv6 (From Homepage) -->
+            <a href="./project1.html" class="project-card">
+                <div class="project-image-container">
+                    <img src="./img/project1.png" alt="IPv6 Tunnel">
+                </div>
+                <div class="project-info">
+                    <div>
+                        <span class="project-category">Network Engineering</span>
+                        <h3 class="project-title">IPv6 over IPv4 Tunnel</h3>
+                        <p class="project-desc">Campus network traffic optimization and tunneling solution.</p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Project 7 -->
+            <div class="project-card">
+                <div class="project-image-container">
+                    <img src="./img/project/tushu.png" alt="Auto Check-in">
+                </div>
+                <div class="project-info">
+                    <div>
+                        <span class="project-category">Automation</span>
+                        <h3 class="project-title">部分社区自动签到</h3>
+                        <p class="project-desc">Daily automated check-in script for various online communities.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 8 -->
+            <div class="project-card">
+                <div class="project-image-container">
+                    <img src="./img/box8.gif" alt="Garbage Classification">
+                </div>
+                <div class="project-info">
+                    <div>
+                        <span class="project-category">Android App</span>
+                        <h3 class="project-title">安卓垃圾分类软件</h3>
+                        <p class="project-desc">Mobile application helping users classify waste correctly.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 9 -->
+            <div class="project-card">
+                <div class="project-image-container">
+                    <img src="./img/box7.gif" alt="Ticket Sniping">
+                </div>
+                <div class="project-info">
+                    <div>
+                        <span class="project-category">Desktop Software</span>
+                        <h3 class="project-title">自动抢票软件</h3>
+                        <p class="project-desc">Desktop application for automated ticket booking.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 10 -->
+            <div class="project-card">
+                <div class="project-image-container">
+                    <img src="./img/box3.gif" alt="PHP Library">
+                </div>
+                <div class="project-info">
+                    <div>
+                        <span class="project-category">Web System</span>
+                        <h3 class="project-title">PHP图书馆系统</h3>
+                        <p class="project-desc">Full-stack library management system built with PHP.</p>
+                    </div>
+                </div>
+            </div>
+
+             <!-- Project 11 -->
+             <div class="project-card">
+                <div class="project-image-container">
+                    <img src="./img/box4.gif" alt="RSA Encryption">
+                </div>
+                <div class="project-info">
+                    <div>
+                        <span class="project-category">Security</span>
+                        <h3 class="project-title">RSA加密算法编写</h3>
+                        <p class="project-desc">Implementation of RSA encryption algorithm from scratch.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <footer class="footer-inline">
+            <div class="footer-content">
+                <div class="footer-columns">
+                    <div class="footer-column">
+                        <h4 class="footer-heading">Connect</h4>
+                        <ul class="footer-links">
+                            <li><a href="mailto:2474418338@qq.com">Email Me</a></li>
+                            <li><a href="https://github.com/hjl666-hjl">GitHub</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4 class="footer-heading">Explore</h4>
+                        <ul class="footer-links">
+                            <li><a href="./design.html">Home</a></li>
+                            <li><a href="./projects.html">Projects</a></li>
+                            <li><a href="./blog.html">Blog</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>Copyright © 2024 Justin Huang.</p>
+                    <p>Designed with Apple aesthetic.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <script src="./js/jq.js"></script>
+    <script>
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 50) {
+                $('.globalnav').addClass('scrolled');
+            } else {
+                $('.globalnav').removeClass('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

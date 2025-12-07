@@ -141,6 +141,10 @@ img {
 }
 
 /* 上面的装饰 */
+.borderbefore {
+  position: relative;
+}
+
 .borderbefore::before{
   content: '';
   position: absolute;
@@ -151,6 +155,11 @@ img {
   background-color: var(--borderline);
   border-radius: 5px 5px 0% 0%;
   opacity: .3;
+}
+
+/* 左边个人卡片不显示顶部装饰条 */
+.me-card.borderbefore::before {
+  display: none;
 }
 
 .col {
@@ -351,13 +360,30 @@ img {
   text-align: center;
   border: 1px solid var(--headerCOlor);
   padding: 0px 30px;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-/* 左边吸盘 - 滚动时固定居中 */
+/* 左边个人卡片悬停效果 */
+.content .me-card:hover {
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* 左边吸盘 - 滚动时固定，优先显示顶部 */
 .content .me-card.scroll {
   position: fixed !important;
-  top: 50% !important;
-  transform: translateY(-50%) !important;
+  top: 90px !important;
+  transform: translateY(0) !important;
+  max-height: calc(100vh - 110px);
+  overflow-y: auto;
+  /* 隐藏滚动条但保留滚动功能 */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+/* Chrome/Safari/Opera 隐藏滚动条 */
+.content .me-card.scroll::-webkit-scrollbar {
+  display: none;
 }
 
 
@@ -736,6 +762,8 @@ img {
     }
     .content .me-card{
       min-width: auto;
+      height: auto;
+      max-height: none;
     }
     .co-left{
       position: relative;
@@ -752,6 +780,7 @@ img {
     .content .me-card{
       width:auto;
       transform: translateY(-20px);
+      height: auto;
     }
     .content .me-card.scroll{
       position: relative !important;
@@ -829,6 +858,8 @@ img {
   .content .me-card{
     width:auto;
     transform: translateY(-20px);
+    height: auto;
+    max-height: none;
   }
   .content .me-card.scroll{
     position: relative !important;

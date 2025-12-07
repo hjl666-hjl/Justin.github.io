@@ -73,39 +73,19 @@
 }
 
 /* ========================================
-   3. 霓虹发光边框
+   3. 霓虹发光边框（优化版 - 同色系微光效果）
    ======================================== */
 .neon-border {
   position: relative;
   overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.neon-border::after {
-  content: '';
-  position: absolute;
-  inset: -2px;
-  background: linear-gradient(45deg, 
-    var(--aurora-1), 
-    var(--aurora-2), 
-    var(--aurora-3), 
-    var(--aurora-1)
-  );
-  background-size: 400% 400%;
-  border-radius: inherit;
-  z-index: -1;
-  animation: neon-rotate 3s linear infinite;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.neon-border:hover::after {
-  opacity: 1;
-}
-
-@keyframes neon-rotate {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+/* 悬停时的微光边框效果 */
+.neon-border:hover {
+  box-shadow: 0 0 20px rgba(0, 40, 58, 0.3),
+              0 8px 30px rgba(0, 0, 0, 0.2),
+              inset 0 0 20px rgba(255, 255, 255, 0.03);
 }
 
 /* ========================================
