@@ -3,34 +3,33 @@
    ========================================= */
 html {
     height: 100vh;
-    overflow-y: scroll;
-    scroll-snap-type: y mandatory;
-    scroll-behavior: smooth;
+    overflow: hidden; /* HTML does not scroll */
     margin: 0;
     padding: 0;
 }
 
 body {
     height: 100vh;
+    overflow-y: scroll; /* Body handles scroll */
+    overflow-x: hidden;
+    scroll-snap-type: y mandatory; /* Body handles snap */
+    scroll-behavior: smooth;
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
-    overflow-y: auto;
-    scroll-snap-type: y mandatory;
 }
 
 .page-section {
     height: 100vh;
-    width: 100vw;
+    width: 100%;
     scroll-snap-align: start;
-    scroll-snap-stop: always; /* Force snap */
+    scroll-snap-stop: always;
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding-top: var(--nav-height);
     box-sizing: border-box; 
-    overflow: hidden; /* Prevent inner scrollbars */
+    overflow: hidden;
 }
 
 /* =========================================
@@ -66,7 +65,7 @@ body {
 }
 
 .hero-headline {
-    font-size: 80px;
+    font-size: clamp(48px, 5vw, 80px); /* Smart scaling */
     font-weight: 700;
     letter-spacing: -0.02em;
     margin-bottom: 10px;
@@ -104,30 +103,47 @@ body {
    3. Bento Grid Section
    ========================================= */
 .section-header {
-    margin-bottom: 40px;
+    margin-bottom: 3vh; /* Responsive margin */
     text-align: center;
-}
-
-.section-title {
-    font-size: 48px;
-    font-weight: 600;
-    margin-bottom: 10px;
-    color: var(--text-primary);
-}
-
-.section-subtitle {
-    font-size: 20px;
-    color: var(--text-secondary);
 }
 
 .bento-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 280px);
+    grid-template-rows: repeat(3, 1fr); /* 3 Equal Rows */
     gap: 20px;
     width: 100%;
     max-width: 1200px;
+    height: 65vh; /* Fluid height based on viewport */
+    min-height: 500px; /* Minimum safety height */
     margin: 0 auto;
+}
+
+/* Precise Layout for 4x3 Grid */
+.card-large { 
+    grid-column: 1 / 3; 
+    grid-row: 1 / 3; 
+}
+
+#card-stats { 
+    grid-column: 3 / 4; 
+    grid-row: 1 / 2; 
+}
+
+#card-opengl { 
+    grid-column: 3 / 4; 
+    grid-row: 2 / 3; 
+}
+
+.card-tall { 
+    grid-column: 4 / 5; 
+    grid-row: 1 / 4; /* Spans full height on right */
+}
+
+/* IPv6 Project */
+.card-wide { 
+    grid-column: 1 / 4; 
+    grid-row: 3 / 4; 
 }
 
 .bento-card {
@@ -149,11 +165,8 @@ body {
     z-index: 2;
 }
 
-/* Card Sizes */
-.card-large { grid-column: span 2; grid-row: span 2; }
-.card-medium { grid-column: span 1; grid-row: span 1; }
-.card-wide { grid-column: span 2; grid-row: span 1; }
-.card-tall { grid-column: span 1; grid-row: span 2; }
+/* Card Sizes - Handled in grid definition above now, removing old classes to avoid conflict */
+/* .card-large, .card-medium, .card-wide, .card-tall removed here */
 
 /* Card Styles */
 .card-dark { background-color: #000; color: #fff; }
@@ -251,7 +264,7 @@ body {
 
 .feature-content-centered { max-width: 700px; padding: 40px; }
 .feature-eyebrow { color: #86868b; text-transform: uppercase; letter-spacing: 2px; font-size: 14px; font-weight: 600; display: block; margin-bottom: 20px; }
-.feature-headline { font-size: 48px; line-height: 1.1; font-weight: 700; margin-bottom: 30px; background: linear-gradient(135deg, #fff 0%, #888 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.feature-headline { font-size: clamp(32px, 4vw, 48px); line-height: 1.1; font-weight: 700; margin-bottom: 30px; background: linear-gradient(135deg, #fff 0%, #888 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 .feature-desc { font-size: 20px; color: #a1a1a6; line-height: 1.5; }
 
 /* =========================================
@@ -263,6 +276,7 @@ body {
     justify-content: space-between;
     height: 100vh;
     padding-top: var(--nav-height);
+    overflow: hidden; /* Ensure footer doesn't get pushed out */
 }
 
 .video-content-part {
@@ -272,18 +286,26 @@ body {
     justify-content: center;
     align-items: center;
     padding: 20px;
+    min-height: 0; /* Crucial for flex item shrinking */
 }
 
 .video-container {
     width: 80%;
-    max-width: 900px;
+    max-width: 800px;
+    max-height: 50vh; /* Limit height on small screens */
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 20px 40px rgba(0,0,0,0.2);
     background: #000;
+    flex-shrink: 1; /* Allow shrinking */
 }
 
-.video-player { width: 100%; display: block; }
+.video-player { 
+    width: 100%; 
+    height: 100%; 
+    display: block; 
+    object-fit: cover; /* Fill the container */
+}
 .video-caption { text-align: center; margin-top: 20px; }
 .video-caption h3 { font-size: 24px; font-weight: 600; margin-bottom: 5px; }
 .video-caption p { font-size: 16px; color: var(--text-secondary); }
@@ -560,43 +582,113 @@ body {
 /* =========================================
    10. Responsive Queries (Global)
    ========================================= */
-@media (max-width: 1024px) {
-    .bento-grid {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: auto;
-    }
-    .card-large, .card-wide, .card-tall { grid-column: span 2; grid-row: span 1; }
-    .card-tall { grid-row: span 2; } 
+
+/* Height-based adjustments for laptops (Small Height Screens) */
+@media (max-height: 800px) {
+    .section-header { margin-bottom: 10px; }
+    .section-title { font-size: 32px; margin-bottom: 2px; }
+    .section-subtitle { font-size: 14px; }
     
-    .blog-layout { flex-direction: column; }
-    .blog-sidebar { width: 100%; position: static; margin-bottom: 40px; }
-    .category-list { display: flex; flex-wrap: wrap; gap: 10px; }
-    .category-item { margin-bottom: 0; }
+    .bento-grid {
+        height: 78vh; /* Use almost all available height */
+        gap: 10px; /* Reduce gap */
+    }
+    
+    .card-title { font-size: 20px; margin-bottom: 2px; }
+    .card-desc { font-size: 12px; margin-bottom: 5px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .skill-list li { margin-bottom: 4px; font-size: 11px; }
+    .stat-number { font-size: 24px; }
+    .stat-label { font-size: 11px; }
+    
+    .card-content, .card-content-padding, .card-content-row { padding: 15px !important; }
 }
 
+/* Laptop / Tablet Optimization (1200px down to 769px) */
+@media (max-width: 1200px) {
+    /* Hero Section */
+    .hero-card-container {
+        width: 90%; 
+        height: auto;
+        min-height: 60vh;
+        padding: 40px;
+    }
+
+    .hero-headline {
+        font-size: clamp(40px, 6vw, 70px); 
+    }
+    
+    .hero-subheadline {
+        font-size: 20px;
+    }
+
+    /* Bento Grid: Switch to 2 columns */
+    .bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto; /* Allow auto height on tablet */
+        max-width: 800px;
+        height: auto; /* Reset fixed height */
+    }
+    
+    /* Auto-flow layout for 2 columns */
+    .card-large { grid-area: auto / span 2; min-height: 300px; }
+    #card-stats { grid-area: auto; min-height: 200px; }
+    #card-opengl { grid-area: auto; min-height: 200px; }
+    .card-tall { grid-area: auto / span 1; grid-row: span 2; } 
+    .card-wide { grid-area: auto / span 2; min-height: 200px; } 
+    
+    /* Feature Section */
+    .feature-section {
+        width: 90%;
+        height: auto;
+        min-height: 50vh;
+        padding: 40px 20px;
+    }
+    
+    .feature-headline {
+        font-size: clamp(28px, 4vw, 40px);
+    }
+}
+
+/* Mobile Optimization (768px and down) */
 @media (max-width: 768px) {
     .hero-headline { font-size: 48px; }
-    .hero-card-container { height: auto; padding: 60px 20px; min-height: auto; }
+    .hero-card-container { height: auto; padding: 60px 20px; min-height: auto; width: 100%; }
     .section-title { font-size: 36px; }
     
-    .bento-grid { display: flex; flex-direction: column; }
-    .bento-card { min-height: 250px; }
+    .bento-grid { display: flex; flex-direction: column; gap: 20px; }
+    .bento-card { min-height: 250px; width: 100%; margin: 0; }
     
     .projects-gallery {
         grid-template-columns: 1fr;
+        padding: 0 10px;
     }
+
+    .project-card { margin-bottom: 20px; }
     
     .profile-header { flex-direction: column; text-align: center; padding: 30px; }
     .timeline-item { padding-left: 20px; }
 
-    /* Disable scroll snap on mobile for better flow */
-    body { scroll-snap-type: none; height: auto; }
-    .page-section { height: auto; min-height: auto; padding-top: 100px; padding-bottom: 60px; scroll-snap-align: none; }
+    /* Enable scroll snap on mobile as requested */
+    body { height: auto; overflow-y: visible; } 
+    html { scroll-snap-type: y mandatory; }
+    
+    .page-section { 
+        height: auto; 
+        min-height: 100vh; 
+        padding-top: 100px; 
+        padding-bottom: 60px;
+        scroll-snap-align: start; 
+        scroll-snap-stop: always;
+        justify-content: flex-start; /* Allow content to flow from top */
+        overflow: visible; /* Don't cut off content on mobile */
+    }
     
     .feature-headline { font-size: 32px; }
     
     .footer-columns { flex-direction: column; gap: 30px; }
     .footer-column { width: 100%; }
+    
+    .section-content-wrapper { padding: 0 15px; }
 
     /* Hide revolver on mobile */
     .scroll-indicator-container { display: none; }

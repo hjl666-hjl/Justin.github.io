@@ -1,11 +1,25 @@
 // design.js - Interaction logic for the main design page
 
-$(window).scroll(function() {
-    if ($(this).scrollTop() > 50) {
+// Helper to get scroll container (body)
+const getScrollContainer = () => document.body;
+
+// Update Nav on Scroll
+const scrollContainer = document.body;
+scrollContainer.addEventListener('scroll', function() {
+    if (scrollContainer.scrollTop > 50) {
         $('.globalnav').addClass('scrolled');
     } else {
         $('.globalnav').removeClass('scrolled');
     }
+});
+
+// Fallback for window scroll (some browsers might still fire this)
+window.addEventListener('scroll', function() {
+   if (document.documentElement.scrollTop > 50 || document.body.scrollTop > 50) {
+       $('.globalnav').addClass('scrolled');
+   } else {
+       $('.globalnav').removeClass('scrolled');
+   }
 });
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -49,16 +63,20 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // 2. Expand/Shrink on Scroll (Damping visualization)
-    window.addEventListener('scroll', () => {
+    // Listen on body because body is the scroll container now
+    document.body.addEventListener('scroll', handleScrollVisuals);
+    window.addEventListener('scroll', handleScrollVisuals); // Fallback
+
+    function handleScrollVisuals() {
         if (indicatorContainer) {
             indicatorContainer.classList.add('is-scrolling');
             
             clearTimeout(isScrollingTimer);
             isScrollingTimer = setTimeout(() => {
                 indicatorContainer.classList.remove('is-scrolling');
-            }, 800); // Delay before shrinking back
+            }, 800); 
         }
-    });
+    }
 
     // Smooth Scroll for Anchors
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=WindSong:wght@500&display=swap');
+
 :root {
     --background-color: #fbfbfd;
     --text-primary: #1d1d1f;
@@ -132,10 +134,18 @@ body {
 }
 
 .globalnav-logo {
-    font-weight: 600;
-    font-size: 18px;
+    font-family: 'WindSong', cursive;
+    font-weight: 500;
+    font-size: 34px; /* 这个字体比较修长，字号大一点 */
+    letter-spacing: 0px;
     opacity: 1;
     color: var(--text-primary);
+    transition: transform 0.2s ease;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.globalnav-logo:hover {
+    transform: scale(1.05);
 }
 
 /* Footer (Shared Styles) */
@@ -156,7 +166,7 @@ body {
 .footer-links li { margin-bottom: 6px; }
 .footer-links a { color: var(--text-secondary); text-decoration: none; }
 .footer-links a:hover { color: var(--text-primary); text-decoration: underline; }
-.footer-bottom { display: flex; justify-content: space-between; padding-top: 10px; }
+.footer-bottom { display: flex; justify-content: center; padding-top: 10px; }
 
 /* Utilities */
 .section-content-wrapper {

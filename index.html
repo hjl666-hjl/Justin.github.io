@@ -21,7 +21,7 @@
         <div class="globalnav-content">
             <a href="./index.html" class="globalnav-link globalnav-logo">Justin</a>
             <ul class="globalnav-list">
-                <li><a href="./projects.html" class="globalnav-link">Projects</a></li>
+                <li><a href="./projects.html" class="globalnav-link">Blog</a></li>
                 <li><a href="./about.html" class="globalnav-link">Skills</a></li>
                 <li><a href="./about.html#story" class="globalnav-link">Story</a></li>
                 <li><a href="./contact.html" class="globalnav-link">Contact</a></li>
@@ -46,7 +46,7 @@
                 <h1 class="hero-headline">Hello, I'm Justin.</h1>
                 <p class="hero-subheadline">Developer. Designer. Creator.</p>
             <div class="hero-cta-container">
-                <a href="./projects.html" class="cta-button">View Work</a>
+                <a href="./projects.html" class="cta-button">Read Blog</a>
                 <a href="./contact.html" class="cta-link">Contact me ></a>
             </div>
             </div>
@@ -74,7 +74,7 @@
                 </div>
 
                 <!-- Medium Card: Stats -->
-                <div class="bento-card card-medium card-light">
+                <div class="bento-card card-medium card-light" id="card-stats">
                     <div class="stats-container">
                         <div class="stat-item">
                             <span class="stat-number">15+</span>
@@ -88,7 +88,7 @@
                 </div>
 
                 <!-- Medium Card: Project 2 (OpenGL) -->
-                <div class="bento-card card-medium card-dark" style="background-image: url('./img/project3.png');">
+                <div class="bento-card card-medium card-dark" id="card-opengl" style="background-image: url('./img/project3.png');">
                     <div class="card-content">
                         <span class="card-eyebrow">Computer Graphics</span>
                         <h3 class="card-title">OpenGL Monument Valley</h3>
@@ -97,33 +97,53 @@
                     <div class="card-overlay"></div>
                 </div>
 
-                <!-- Tall Card: Skills -->
+                <!-- Tall Card: Skills (Restored to card-tall) -->
                 <div class="bento-card card-tall card-white" id="skills">
                     <div class="card-content-padding">
-                        <h3 class="card-title-small">Tech Stack</h3>
+                        <h3 class="card-title-small">Tech Stack & Interests</h3>
                         <ul class="skill-list">
                             <li>
-                                <span class="skill-icon">🌐</span>
-                                <div><strong>Web Dev</strong><br><small>HTML/CSS, JS, Vue</small></div>
+                                <span class="skill-icon">🎮</span>
+                                <div><strong>Game Dev</strong><br><small>Unity, Unreal Engine</small></div>
+                            </li>
+                            <li>
+                                <span class="skill-icon">⚙️</span>
+                                <div><strong>C++</strong><br><small>System Programming</small></div>
+                            </li>
+                            <li>
+                                <span class="skill-icon">🐍</span>
+                                <div><strong>Python</strong><br><small>Scripting & Automation</small></div>
+                            </li>
+                            <li>
+                                <span class="skill-icon">🌙</span>
+                                <div><strong>Lua</strong><br><small>Game Scripting</small></div>
+                            </li>
+                            <li>
+                                <span class="skill-icon">🤖</span>
+                                <div><strong>LLM</strong><br><small>RAG, Fine-tuning</small></div>
                             </li>
                             <li>
                                 <span class="skill-icon">📊</span>
-                                <div><strong>Data Modeling</strong><br><small>Python, Visualization</small></div>
+                                <div><strong>Data Analysis</strong><br><small>Pandas, Visualization</small></div>
                             </li>
                             <li>
-                                <span class="skill-icon">📱</span>
-                                <div><strong>App Dev</strong><br><small>Android, Mini-Program</small></div>
+                                <span class="skill-icon">🌐</span>
+                                <div><strong>Network</strong><br><small>TCP/IP, Socket</small></div>
                             </li>
                             <li>
-                                <span class="skill-icon">🔌</span>
-                                <div><strong>Network</strong><br><small>PHP, MySQL, Socket</small></div>
+                                <span class="skill-icon">🎾</span>
+                                <div><strong>Tennis</strong><br><small>Competitive Player</small></div>
+                            </li>
+                            <li>
+                                <span class="skill-icon">🎯</span>
+                                <div><strong>FPS Games</strong><br><small>Tactical Shooters</small></div>
                             </li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- Medium Card: Project 3 (IPv6) -->
-                <div class="bento-card card-wide card-gray">
+                <!-- Medium Card: Project 3 (IPv6) - Restored -->
+                <div class="bento-card card-wide card-gray" id="card-ipv6">
                      <div class="card-content-row">
                         <div class="card-text">
                             <span class="card-eyebrow">Network Engineering</span>
@@ -183,20 +203,12 @@
                         <h4 class="footer-heading">Explore</h4>
                         <ul class="footer-links">
                             <li><a href="#projects">Projects</a></li>
-                            <li><a href="./blog.html">Blog</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-column">
-                        <h4 class="footer-heading">Works</h4>
-                        <ul class="footer-links">
-                            <li><a href="./Three3dTest/index.html">Magic</a></li>
-                            <li><a href="./project3.html">OpenGL</a></li>
+                            <li><a href="./projects.html">Blog</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="footer-bottom">
                     <p>Copyright © 2024 Justin Huang.</p>
-                    <p>Designed with Apple aesthetic.</p>
                 </div>
             </div>
         </footer>
