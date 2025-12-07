@@ -668,17 +668,26 @@ body {
     .profile-header { flex-direction: column; text-align: center; padding: 30px; }
     .timeline-item { padding-left: 20px; }
 
-    /* Enable scroll snap on mobile as requested */
-    body { height: auto; overflow-y: visible; } 
-    html { scroll-snap-type: y mandatory; }
+    /* Mobile scroll fix - keep body as scroll container */
+    html {
+        height: auto;
+        overflow: visible;
+    }
+    
+    body { 
+        height: auto; 
+        overflow-y: auto;
+        overflow-x: hidden;
+        scroll-snap-type: none; /* Disable snap on mobile for smooth scrolling */
+        -webkit-overflow-scrolling: touch; /* Enable momentum scrolling on iOS */
+    }
     
     .page-section { 
         height: auto; 
         min-height: 100vh; 
         padding-top: 100px; 
         padding-bottom: 60px;
-        scroll-snap-align: start; 
-        scroll-snap-stop: always;
+        scroll-snap-align: none;
         justify-content: flex-start; /* Allow content to flow from top */
         overflow: visible; /* Don't cut off content on mobile */
     }
