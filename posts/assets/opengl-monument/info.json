@@ -1,0 +1,7 @@
+{
+  "title": "OpenGL Monument Valley",
+  "category": "Computer Graphics",
+  "description": "Recreating the Monument Valley scene using C++ and OpenGL.",
+  "image": "./img/project3.png",
+  "link": "./project3.html"
+}

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wiki - Justin Huang</title>
+    <link rel="stylesheet" href="./css/apple-common.css">
+    <link rel="stylesheet" href="./css/design.css">
+    <link href="./css/prism.css" rel="stylesheet">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script src="./js/marked.js"></script>
+    <script src="./js/prism.js"></script>
+    <style>
+        html, body { scroll-snap-type: none; height: auto; overflow-y: auto; }
+        .page-section { height: auto; min-height: auto; padding-top: 100px; padding-bottom: 100px; display: block; }
+        
+        /* Markdown Content Styles */
+        .wiki-content {
+            background: #fff;
+            padding: 60px;
+            border-radius: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 17px;
+            line-height: 1.6;
+            color: #1d1d1f;
+            min-height: 300px;
+        }
+
+        .wiki-content h1 { font-size: 40px; font-weight: 700; margin-bottom: 30px; letter-spacing: -0.015em; }
+        .wiki-content h2 { font-size: 28px; font-weight: 600; margin-top: 40px; margin-bottom: 20px; }
+        .wiki-content h3 { font-size: 22px; font-weight: 600; margin-top: 30px; margin-bottom: 15px; }
+        .wiki-content p { margin-bottom: 20px; }
+        .wiki-content ul, .wiki-content ol { margin-bottom: 20px; padding-left: 20px; }
+        .wiki-content li { margin-bottom: 8px; }
+        
+        .wiki-content pre {
+            background: #f5f5f7;
+            padding: 20px;
+            border-radius: 12px;
+            overflow-x: auto;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        
+        .wiki-content blockquote {
+            border-left: 4px solid var(--accent-blue);
+            padding-left: 20px;
+            margin-left: 0;
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+            background: rgba(0, 102, 204, 0.05);
+            padding: 15px 20px;
+            border-radius: 8px;
+        }
+
+        .wiki-content img {
+            max-width: 100%;
+            border-radius: 12px;
+            margin: 20px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .wiki-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        /* Back Button Style */
+        .back-nav-container {
+            max-width: 900px;
+            margin: 0 auto 30px auto;
+            display: flex;
+            align-items: center;
+            padding-top: 100px; /* Add padding to prevent nav overlap */
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #1d1d1f;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 10px 20px;
+            border-radius: 980px;
+            border: 1px solid rgba(0,0,0,0.1);
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .back-link:hover { 
+            text-decoration: none; 
+            transform: scale(1.02);
+            background: #fff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .back-link::before {
+            content: '←';
+            margin-right: 6px;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .wiki-content { padding: 30px; }
+            .wiki-content h1 { font-size: 32px; }
+            .back-nav-container { padding: 0 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-decoration">
+        <div class="blur-shape shape-1"></div>
+        <div class="blur-shape shape-2"></div>
+        <div class="grid-pattern"></div>
+    </div>
+
+    <nav class="globalnav">
+        <div class="globalnav-content">
+            <a href="./index.html" class="globalnav-link globalnav-logo">Justin</a>
+            <ul class="globalnav-list">
+                <li><a href="./projects.html" class="globalnav-link" style="color:#0066cc; opacity:1;">Projects</a></li>
+                <li><a href="./about.html" class="globalnav-link">Skills</a></li>
+                <li><a href="./about.html#story" class="globalnav-link">Story</a></li>
+                <li><a href="./contact.html" class="globalnav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="section-content-wrapper">
+        <div class="back-nav-container">
+            <a href="./projects.html" class="back-link">Back to Projects</a>
+        </div>
+        
+        <div id="wiki-container" class="wiki-content">
+            <div style="text-align: center; color: #86868b; padding: 40px;">
+                Loading project documentation...
+            </div>
+        </div>
+
+        <footer class="footer-inline">
+            <div class="footer-content">
+                <div class="footer-columns">
+                    <div class="footer-column">
+                        <h4 class="footer-heading">Connect</h4>
+                        <ul class="footer-links">
+                            <li><a href="mailto:2474418338@qq.com">Email Me</a></li>
+                            <li><a href="https://github.com/hjl666-hjl">GitHub</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4 class="footer-heading">Explore</h4>
+                        <ul class="footer-links">
+                            <li><a href="./index.html">Home</a></li>
+                            <li><a href="./projects.html">Projects</a></li>
+                            <li><a href="./blog.html">Blog</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>Copyright © 2024 Justin Huang.</p>
+                    <p>Designed with Apple aesthetic.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <script src="./js/jq.js"></script>
+    <script>
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 50) {
+                $('.globalnav').addClass('scrolled');
+            } else {
+                $('.globalnav').removeClass('scrolled');
+            }
+        });
+
+        function getQueryParam(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const projectId = getQueryParam('project');
+            if (projectId) {
+                const mdUrl = `./posts/assets/${projectId}/README.md`;
+                
+                fetch(mdUrl)
+                    .then(response => {
+                        if (!response.ok) throw new Error('Wiki not found');
+                        return response.text();
+                    })
+                    .then(text => {
+                        const container = document.getElementById('wiki-container');
+                        // Use marked.js to render
+                        container.innerHTML = marked.parse(text);
+                        // Highlight code blocks
+                        if (window.Prism) {
+                            window.Prism.highlightAll();
+                        }
+                    })
+                    .catch(err => {
+                        document.getElementById('wiki-container').innerHTML = `
+                            <div style="text-align: center; padding: 60px;">
+                                <h3>Wiki Not Found</h3>
+                                <p style="color: #86868b;">The documentation for this project is missing or could not be loaded.</p>
+                                <br>
+                                <a href="./projects.html" class="cta-button">Go Back</a>
+                            </div>
+                        `;
+                    });
+            }
+        });
+    </script>
+</body>
+</html>

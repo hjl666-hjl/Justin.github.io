@@ -1,0 +1,15 @@
+# 自动抢票软件
+
+## Project Overview
+Desktop application for automated ticket booking.
+
+> This is a placeholder for the project documentation. 
+> Please update this file with detailed project information, installation steps, and usage guides.
+
+## Features
+- Feature 1
+- Feature 2
+- Feature 3
+
+## Tech Stack
+- Desktop Software
