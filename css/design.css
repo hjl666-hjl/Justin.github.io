@@ -690,6 +690,9 @@ body {
         scroll-snap-align: none;
         justify-content: flex-start; /* Allow content to flow from top */
         overflow: visible; /* Don't cut off content on mobile */
+        background-color: #f5f5f7; /* Add background to prevent transparency issues */
+        position: relative;
+        z-index: 1; /* Ensure sections stack above fixed background */
     }
     
     .feature-headline { font-size: 32px; }
@@ -701,4 +704,11 @@ body {
 
     /* Hide revolver on mobile */
     .scroll-indicator-container { display: none; }
+    
+    /* Last page layout fix for mobile */
+    .last-page-layout {
+        height: auto;
+        min-height: 100vh;
+        overflow: visible;
+    }
 }
