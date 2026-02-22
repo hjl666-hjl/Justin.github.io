@@ -133,6 +133,11 @@ body {
     color: var(--accent-blue);
 }
 
+.globalnav-active {
+    color: var(--accent-blue) !important;
+    opacity: 1 !important;
+}
+
 .globalnav-logo {
     font-family: 'WindSong', cursive;
     font-weight: 500;
